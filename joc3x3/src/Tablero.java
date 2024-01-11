@@ -13,14 +13,14 @@ public class Tablero {
         }
     }
 
-    public void inicializarTablero (){
+    private void inicializarTablero (){
         for (int y = 0 ; y < this.tab.length ; y++){
             for (int x = 0 ; x < this.tab[y].length ; x++){
                 this.tab[y][x]= new Pieza(y,x);
             }
         }
     }
-    int turno = 1;
+    private int turno = 1;
 
     public void colocarPieza (int row , int col){
         if (!this.tab[row][col].isOcupada()){
@@ -41,7 +41,7 @@ public class Tablero {
         boolean result = false;
         for (int y =0 ; y < this.tab.length ;y++){
             for (int x =y+1 ; x < this.tab.length ;x++){
-                if (this.tab[y][0].getPieza().equals(this.tab[y][x].getPieza()) && this.tab[y][x].getPieza().equals(this.tab[y][x-1].getPieza()) && this.tab[y][x-1].ocupada && this.tab[y][x].ocupada){
+                if (this.tab[y][0].getPieza().equals(this.tab[y][x].getPieza()) && this.tab[y][x].getPieza().equals(this.tab[y][x-1].getPieza()) && this.tab[y][x-1].isOcupada() && this.tab[y][x].isOcupada()){
                     result = true;
                 }else {
                     result = false;
@@ -58,7 +58,7 @@ public class Tablero {
         boolean result = false;
         for (int y =0 ; y < this.tab.length ;y++){
             for (int x =y+1 ; x < this.tab.length ;x++){
-                if (this.tab[0][y].getPieza().equals(this.tab[x][y].getPieza()) && this.tab[x][y].getPieza().equals(this.tab[x-1][y].getPieza()) && this.tab[y][x-1].ocupada && this.tab[y][x].ocupada){
+                if (this.tab[0][y].getPieza().equals(this.tab[x][y].getPieza()) && this.tab[x][y].getPieza().equals(this.tab[x-1][y].getPieza()) && this.tab[y][x-1].isOcupada() && this.tab[y][x].isOcupada()){
                     result = true;
                 }else {
                     result = false;
@@ -74,7 +74,7 @@ public class Tablero {
     public boolean checDiagonal(){
         boolean result = false;
         for (int y = 1 ; y < this.tab.length ;y++){
-            if (this.tab[0][0].getPieza().equals(this.tab[y][y].getPieza()) && this.tab[y-1][y-1].getPieza().equals(this.tab[y][y].getPieza()) && this.tab[y][y].ocupada && this.tab[0][0].ocupada){
+            if (this.tab[0][0].getPieza().equals(this.tab[y][y].getPieza()) && this.tab[y-1][y-1].getPieza().equals(this.tab[y][y].getPieza()) && this.tab[y][y].isOcupada() && this.tab[0][0].isOcupada()){
                 result = true;
             }else {
                 result = false;
@@ -87,7 +87,7 @@ public class Tablero {
         boolean result = false;
         for (int y = this.tab.length-1 ; y > 0 ; y--){
             for (int x = 0 ; x < this.tab.length-1 ; x++){
-                if (this.tab[2][0].getPieza().equals(this.tab[y-1][x+1].getPieza()) && this.tab[y][x].getPieza().equals(this.tab[y-1][x+1].getPieza()) && this.tab[2][0].ocupada && this.tab[y-1][x+1].ocupada){
+                if (this.tab[2][0].getPieza().equals(this.tab[y-1][x+1].getPieza()) && this.tab[y][x].getPieza().equals(this.tab[y-1][x+1].getPieza()) && this.tab[2][0].isOcupada() && this.tab[y-1][x+1].isOcupada()){
                     result = true;
                 }
             }

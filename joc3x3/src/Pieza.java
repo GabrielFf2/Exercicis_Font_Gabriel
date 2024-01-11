@@ -1,7 +1,7 @@
 public class Pieza {
 
-    String pieza ;
-    boolean ocupada ;
+    private String pieza ;
+    private boolean ocupada ;
     int row ;
     int col;
 

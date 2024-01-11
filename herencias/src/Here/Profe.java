@@ -1,4 +1,8 @@
-public class Profe extends  Persona {
+package Here;
+
+import Here.Persona;
+
+public class Profe extends Persona {
 
     String assignatura ;
     public Profe(String assignatura ,String nom , int edad){
