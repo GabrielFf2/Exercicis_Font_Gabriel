@@ -14,4 +14,7 @@ public class Triangle extends  Figura {
         return this.base * this.altura /2;
     }
 
+
+
+
 }
